@@ -8,6 +8,7 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import io.github.chayanforyou.quickball.domain.handlers.MenuAction
 import io.github.chayanforyou.quickball.domain.models.QuickBallMenuItemModel
+import io.github.chayanforyou.quickball.R
 
 object PreferenceManager {
     private const val PREFS_NAME = "quick_ball_prefs"
