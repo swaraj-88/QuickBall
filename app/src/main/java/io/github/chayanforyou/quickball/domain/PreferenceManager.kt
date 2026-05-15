@@ -116,18 +116,30 @@ object PreferenceManager {
     }
 
     private fun getDefaultSelectedItems(): List<QuickBallMenuItemModel> {
-        val defaultActions = listOf(
-            MenuAction.VOLUME_UP,
-            MenuAction.VOLUME_DOWN,
-            MenuAction.BRIGHTNESS_UP,
-            MenuAction.BRIGHTNESS_DOWN,
-            MenuAction.LOCK_SCREEN
-        )
-
-        return defaultActions.mapNotNull { action ->
-            QuickBallMenuItemModel.getMenuItemByAction(action)
-        }
-    }
+    return listOf(
+        QuickBallMenuItemModel.createAppMenuItem(
+            appName = "Brave",
+            packageName = "com.brave.browser",
+            iconRes = R.drawable.ic_home
+        ),
+        QuickBallMenuItemModel.createAppMenuItem(
+            appName = "Reddit",
+            packageName = "com.reddit.frontpage",
+            iconRes = R.drawable.ic_home
+        ),
+        QuickBallMenuItemModel.createAppMenuItem(
+            appName = "CX File Explorer",
+            packageName = "com.cxinventor.file.explorer",
+            iconRes = R.drawable.ic_home
+        ),
+        QuickBallMenuItemModel.createAppMenuItem(
+            appName = "VIVI Music",
+            packageName = "com.vivi.vivimusic",
+            iconRes = R.drawable.ic_home
+        ),
+        QuickBallMenuItemModel.getMenuItemByAction(MenuAction.LOCK_SCREEN)!!
+    )
+}
 
     fun setAutoHideApps(context: Context, selectedApps: Set<String>) {
         getPreferences(context).edit {
